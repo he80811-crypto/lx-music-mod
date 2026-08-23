@@ -9,7 +9,7 @@
 ## 功能
 
 - 完整 lx-music 桌面版功能
-- Supabase 云同步（歌单、设置、 dislike 列表等）
+- Supabase 云同步（歌单、设置、dislike 列表等）
 - 手机版 APK 已魔改（功能与桌面版一致）
 - 多设备同步（PC ↔ Android）
 
@@ -20,11 +20,11 @@
 ### 桌面版
 
 1. 下载 [最新 Release](https://github.com/he80811-crypto/lx-music-mod/releases) 中的安装包
-2. 安装并运行
+2. 解压后运行 `lx-music-desktop.exe`
 
 ### 手机版
 
-1. 下载 [lx-music-android.apk](./lx-music-android.apk)
+1. 下载 [lx-music-android.apk](https://github.com/he80811-crypto/lx-music-mod/releases/download/v1.0.0-android/lx-music-android.apk)
 2. 安装到 Android 设备
 
 ### Supabase 云同步（推荐）
@@ -50,7 +50,6 @@ lx-music-mod/
 │   ├── renderer/           # 渲染进程代码
 │   └── common/             # 公共模块
 ├── supabase_setup.sql      # Supabase 建表脚本
-├── lx-music-android.apk    # 手机版 APK（魔改版）
 ├── README.md
 └── LICENSE
 ```
@@ -68,20 +67,20 @@ lx-music-mod/
 ## 许可证
 
 - 源码：**Apache License 2.0**（跟随上游）
-- 手机版 APK：**仅限个人使用**
+- 桌面版/手机版：个人使用
 
 ---
 
 ## 常见问题
 
-**Q: 手机和电脑能同步吗？**  
+**Q: 手机和电脑能同步吗？**
 A: 可以，两端配置同一个 Supabase 项目即可。
 
-**Q: 其他人能用我的 Supabase 项目吗？**  
+**Q: 其他人能用我的 Supabase 项目吗？**
 A: 可以，但会消耗你的额度。建议各自创建独立项目。
 
-**Q: 如何更新到最新版？**  
-A: 从 GitHub Releases 下载最新安装包/APK。
+**Q: 如何更新到最新版？**
+A: 从 GitHub Releases 下载最新版本替换。
 
 ---
 
