@@ -29,6 +29,10 @@
 
 ### Supabase 云同步（推荐）
 
+详细图文教程请查看：[docs/教程.md](./docs/教程.md)
+
+**快速步骤：**
+
 1. 前往 [Supabase Dashboard](https://supabase.com/dashboard/new) 创建免费项目
 2. 打开项目的 **SQL Editor**
 3. 复制粘贴 [supabase_setup.sql](./supabase_setup.sql) 内容，点击 **Run**
