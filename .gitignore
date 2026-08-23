@@ -71,3 +71,10 @@ publish/assets
 publish/utils/githubToken.js
 
 src/**/*-internal.js
+
+# APK 文件（体积大，建议用 Releases 上传）
+*.apk
+!lx-music-android.apk
+
+# Windows 缩略图缓存
+Thumbs.db
