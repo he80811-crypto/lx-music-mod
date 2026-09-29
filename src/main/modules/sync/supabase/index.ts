@@ -12,6 +12,7 @@ import { sendClientStatus, sendSelectMode } from '@main/modules/winMain'
 import log from '../log'
 import { getComputerName } from '../utils'
 import { startRealtime, stopRealtime, sendRealtimeNotify } from './realtime'
+import { syncFetch, invalidateSyncProxy } from './proxy'
 import {
   registerListActionEvent,
   handleRemoteListAction,
@@ -52,7 +53,7 @@ class SupabaseApi {
   }
 
   private async request(pathName: string, init?: RequestInit): Promise<Response> {
-    const res = await fetch(`${this.config.url}/rest/v1${pathName}`, {
+    const res = await syncFetch(`${this.config.url}/rest/v1${pathName}`, {
       ...init,
       headers: { ...this.headers, ...(init?.headers ?? {}) },
     })
@@ -352,6 +353,7 @@ const notifyRealtimeData = () => {
 export const connectServer = async(host: string, publishableKey: string, secret: string) => {
   if (!host || !publishableKey || !secret) throw new Error('请填写完整的云同步配置（地址 / Publishable Key / 同步密钥）')
   const id = ++runId
+  invalidateSyncProxy()
   await disconnectServer(true, false)
   if (id != runId) return
   api = new SupabaseApi({ url: host.replace(/\/+$/, ''), publishableKey, secret })

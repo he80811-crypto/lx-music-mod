@@ -1,5 +1,6 @@
 import WebSocket from 'ws'
 import log from '../log'
+import { getSyncWsAgent } from './proxy'
 
 let socket: WebSocket | null = null
 let reconnectTimer: NodeJS.Timeout | null = null
@@ -56,7 +57,8 @@ const connect = () => {
   if (stopped || !hostRef || !keyRef) return
   stopHeartbeat()
   log.info('[supabase] realtime connecting: ' + hostRef)
-  const ws = new WebSocket(buildUrl(hostRef, keyRef))
+  const wsAgent = getSyncWsAgent()
+  const ws = new WebSocket(buildUrl(hostRef, keyRef), wsAgent ? { agent: wsAgent } : undefined)
   socket = ws
   ws.on('open', () => {
     if (stopped || ws !== socket) return
